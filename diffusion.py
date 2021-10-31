@@ -139,7 +139,7 @@ class IndependentCascade(object):
     def diffuse_mc(self, act_nodes, mc=10):
         self.sample_live_graph_mc(mc)
         self.graph.total_activated_nodes = []
-        for _ in range(mc):
+        for mcount in range(mc):
             self.diffuse(act_nodes, mcount)
         return sum(self.graph.total_activated_nodes) / float(mc)
 
@@ -214,7 +214,7 @@ class LinearThreshold(object):
     def diffuse_mc(self, act_nodes, mc=50):
         self.sample_node_thresholds_mc(mc)
         self.graph.total_activated_nodes = []
-        for _ in range(mc):
+        for mcount in range(mc):
             self.diffuse(act_nodes, mcount)
         return sum(self.graph.total_activated_nodes) / float(mc)
 
